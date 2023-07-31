@@ -1,0 +1,62 @@
+name: Caliper Benchmarks
+version: "2.0.0"
+
+caliper:
+  blockchain: fabric
+
+channels:
+  # channelName of mychannel matches the name of the channel created by test network
+  - channelName: channel1
+    # the chaincodeIDs of all the fabric chaincodes in caliper-benchmarks
+    contracts:
+      - id: supervision
+
+organizations:
+  - mspid: Org1MSP
+    # Identities come from cryptogen created material for test-network
+    identities:
+      certificates:
+        - name: 'User1'
+          clientPrivateKey:
+            path: '/home/alex/go/src/github.com/Aguaments/network/fixtures/crypto-config/peerOrganizations/org1.com/users/User1@org1.com/msp/keystore/priv_sk'
+          clientSignedCert:
+            path: '/home/alex/go/src/github.com/Aguaments/network/fixtures/crypto-config/peerOrganizations/org1.com/users/User1@org1.com/msp/signcerts/User1@org1.com-cert.pem'
+    connectionProfile:
+      path: '/home/alex/go/src/github.com/Aguaments/network/fixtures/crypto-config/peerOrganizations/org1.com/connection-org1.yaml'
+      discover: true
+  - mspid: Org2MSP
+    # Identities come from cryptogen created material for test-network
+    identities:
+      certificates:
+        - name: 'User1'
+          clientPrivateKey:
+            path: '/home/alex/go/src/github.com/Aguaments/network/fixtures/crypto-config/peerOrganizations/org2.com/users/User1@org2.com/msp/keystore/priv_sk'
+          clientSignedCert:
+            path: '/home/alex/go/src/github.com/Aguaments/network/fixtures/crypto-config/peerOrganizations/org2.com/users/User1@org2.com/msp/signcerts/User1@org2.com-cert.pem'
+    connectionProfile:
+      path: '/home/alex/go/src/github.com/Aguaments/network/fixtures/crypto-config/peerOrganizations/org2.com/connection-org2.yaml'
+      discover: true
+  - mspid: Org3MSP
+    # Identities come from cryptogen created material for test-network
+    identities:
+      certificates:
+        - name: 'User1'
+          clientPrivateKey:
+            path: '/home/alex/go/src/github.com/Aguaments/network/fixtures/crypto-config/peerOrganizations/org3.com/users/User1@org3.com/msp/keystore/priv_sk'
+          clientSignedCert:
+            path: '/home/alex/go/src/github.com/Aguaments/network/fixtures/crypto-config/peerOrganizations/org3.com/users/User1@org3.com/msp/signcerts/User1@org3.com-cert.pem'
+    connectionProfile:
+      path: '/home/alex/go/src/github.com/Aguaments/network/fixtures/crypto-config/peerOrganizations/org3.com/connection-org3.yaml'
+      discover: true
+  - mspid: Org4MSP
+    # Identities come from cryptogen created material for test-network
+    identities:
+      certificates:
+        - name: 'User1'
+          clientPrivateKey:
+            path: '/home/alex/go/src/github.com/Aguaments/network/fixtures/crypto-config/peerOrganizations/org4.com/users/User1@org4.com/msp/keystore/priv_sk'
+          clientSignedCert:
+            path: '/home/alex/go/src/github.com/Aguaments/network/fixtures/crypto-config/peerOrganizations/org4.com/users/User1@org4.com/msp/signcerts/User1@org4.com-cert.pem'
+    connectionProfile:
+      path: '/home/alex/go/src/github.com/Aguaments/network/fixtures/crypto-config/peerOrganizations/org4.com/connection-org4.yaml'
+      discover: true

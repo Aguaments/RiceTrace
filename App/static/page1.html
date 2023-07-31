@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>大米可信溯源平台</title>
+    <link rel="stylesheet" type="text/css" href="/App/static/common.css">
+</head>
+<body style="
+      background-image: url('/App/static/水稻背景.jpg');
+      background-repeat: no-repeat;
+      background-size:100% 100%;
+      background-attachment:fixed;
+    ">
+<div id="header">
+    <h1>农产品溯源系统</h1>
+    <p>通过溯源码查询农产品的生产过程</p>
+</div>
+
+<div id="content">
+    <div id="search-form">
+        <label for="trace-code">请输入溯源码：</label>
+        <input type="text" id="trace-code" placeholder="输入溯源码" />
+        <button id="search-btn">查询</button>
+    </div>
+
+    <div id="result">
+        <h2>查询结果：</h2>
+        <p id="product-info"></p>
+    </div>
+</div>
+
+<script>
+    // 获取页面元素
+    const traceCodeInput = document.getElementById("trace-code");
+    const searchButton = document.getElementById("search-btn");
+    const productInfo = document.getElementById("product-info");
+
+    // 监听查询按钮的点击事件
+    searchButton.addEventListener("click", () => {
+        const traceCode = traceCodeInput.value;
+
+        // 发起查询请求，获取农产品信息
+        // 这里可以使用AJAX或者Fetch等技术发送请求到后端API
+        // 并获取返回的农产品信息
+
+        // 假设查询成功，返回的数据为productData
+        const productData = {
+            name: "苹果",
+            origin: "山东省",
+            producer: "某农场",
+            productionDate: "2023-07-01",
+            expirationDate: "2023-07-15",
+            batchNumber: "1234567890",
+            traceabilityCode: traceCode,
+        };
+
+        // 更新页面显示的农产品信息
+        productInfo.textContent = `农产品名称：${productData.name}
+                                产地：${productData.origin}
+                                生产商：${productData.producer}
+                                生产日期：${productData.productionDate}
+                                过期日期：${productData.expirationDate}
+                                批次号：${productData.batchNumber}
+                                溯源码：${productData.traceabilityCode}`;
+    });
+</script>
+</body>
+</html>
